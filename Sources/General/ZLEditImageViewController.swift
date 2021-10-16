@@ -569,7 +569,9 @@ public class ZLEditImageViewController: UIViewController {
         self.stickersContainer.transform = transform
     }
     
+    public var cancelBtnClicked : () -> Void = {}
     @objc func cancelBtnClick() {
+        cancelBtnClicked()
         self.dismiss(animated: self.animateDismiss, completion: nil)
     }
     
