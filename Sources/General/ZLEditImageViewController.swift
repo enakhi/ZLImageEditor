@@ -247,8 +247,7 @@ public class ZLEditImageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+    public  func viewDidLoaded() {
         
         self.setupUI()
         
@@ -482,8 +481,10 @@ public class ZLEditImageViewController: UIViewController {
         self.revokeBtn.addTarget(self, action: #selector(revokeBtnClick), for: .touchUpInside)
         self.bottomShadowView.addSubview(self.revokeBtn)
         
+        let height=navigationController?.view.frame.height ?? self.view.frame.height
         let ashbinSize = CGSize(width: 160, height: 80)
-        self.ashbinView = UIView(frame: CGRect(x: (self.view.frame.width-ashbinSize.width)/2, y: self.view.frame.height-ashbinSize.height-40, width: ashbinSize.width, height: ashbinSize.height))
+        self.ashbinView = UIView(frame: CGRect(x: (self.view.frame.width-ashbinSize.width)/2, y: height-ashbinSize.height-40-70, width: ashbinSize.width, height: ashbinSize.height))
+        
         self.ashbinView.backgroundColor = ZLEditImageViewController.ashbinNormalBgColor
         self.ashbinView.layer.cornerRadius = 15
         self.ashbinView.layer.masksToBounds = true
