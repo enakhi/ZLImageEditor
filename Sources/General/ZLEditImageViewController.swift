@@ -339,7 +339,7 @@ public class ZLEditImageViewController: UIViewController {
         let editSize = self.editRect.size
         let scrollViewSize = self.scrollView.frame.size
         var ratio = min(scrollViewSize.width / editSize.width, scrollViewSize.height / editSize.height)
-        if(ratio > 10000){
+        if(ratio > 100000000){
             ratio=0.126
         }
         let w = ratio * editSize.width * self.scrollView.zoomScale
