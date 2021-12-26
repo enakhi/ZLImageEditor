@@ -338,7 +338,10 @@ public class ZLEditImageViewController: UIViewController {
         
         let editSize = self.editRect.size
         let scrollViewSize = self.scrollView.frame.size
-        let ratio = min(scrollViewSize.width / editSize.width, scrollViewSize.height / editSize.height)
+        var ratio = min(scrollViewSize.width / editSize.width, scrollViewSize.height / editSize.height)
+        if(ratio > 10000){
+            ratio=0.126
+        }
         let w = ratio * editSize.width * self.scrollView.zoomScale
         let h = ratio * editSize.height * self.scrollView.zoomScale
         self.containerView.frame = CGRect(x: max(0, (scrollViewSize.width-w)/2), y: max(0, (scrollViewSize.height-h)/2), width: w, height: h)
